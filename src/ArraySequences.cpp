@@ -30,8 +30,84 @@ Difficulty : Medium
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
-
+int* check_ap(int *, int *, int, int *, int *, int *, int);
+int* check_gp(int *, int *, int, int *, int *, int *);
+int* check_ap(int *, int *b, int n, int *p, int *q, int *r, int j)
+{
+	int i = 0, f = 0, k;
+	while (i<n - 2)
+	{
+		k = i;
+		while (*q - *p == *r - *q&&j<4)
+		{
+			p++;
+			q++;
+			r++;
+			i++;
+			f++;
+		}
+		if (f>0 && j<4)
+		{
+			f = 0;
+			b[j++] = k;
+			b[j++] = i + 1;
+		}
+		else
+		{
+			p++;
+			q++;
+			r++;
+			i++;
+		}
+	}
+	return b;
+}
+int* check_gp(int *a, int *b, int n, int *p, int *q, int *r)
+{
+	int i = 0, f = 0, k;
+	while (i<n - 2)
+	{
+		k = i;
+		while ((float)*q / (*p) == (float)*r / (*q))
+		{
+			p++;
+			q++;
+			r++;
+			i++;
+			f++;
+		}
+		if (f>0)
+		{
+			f = 0;
+			b[4] = k;
+			b[5] = i + 1;
+		}
+		else
+		{
+			p++;
+			q++;
+			r++;
+			i++;
+		}
+	}
+	return b;
+}
 int * find_sequences(int *arr, int len){
-	//Return final array which has 6indexes [AP1_S,AP1_E,AP2_S,AP2_E,GP1_S,GP2_E]
-	return NULL;
+	int *p, *q, *r, *b, i = 0, j = 0;
+	if (arr == NULL||len<3)
+		return NULL;
+	b = (int*)malloc(sizeof(int) * 6);
+	p = &arr[0];
+	q = &arr[1];
+	r = &arr[2];
+	while (i<2)
+	{
+		b = check_ap(arr, b, len, p, q, r, j);
+		i++;
+	}
+	p = &arr[0];
+	q = &arr[1];
+	r = &arr[2];
+	b = check_gp(arr, b, len, p, q, r);
+	return b;
 }

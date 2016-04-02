@@ -23,12 +23,88 @@ Difficulty : Hard
 #include <stdio.h>
 #include <math.h>
 
-struct node{
+typedef struct node{
 	int data;
 	struct node *next;
 };
 
+int exp(int);
+void get_int(node *temp1,node *temp2, int *x1, int *x2,int i)
+{
+	while (i >0)
+	{
+		*x1 = *x1 + (temp1->data) * exp(i);
+		*x2 = *x2 + (temp2->data)* exp(i);
+		temp1 = temp1->next;
+		temp2 = temp2->next;
+	}
+}
+int between_days(struct node *head1, struct node *head2){
 
-int between_days(struct node *date1head, struct node *date2head){
-	return -1;
+	int i = 0,d1=0,d2=0,m1=0,m2=0,y1=0,y2=0;
+	if (head1 == NULL || head2 == NULL)
+		return -1;
+	node *temp1,*temp2;
+	temp1 = head1;
+	temp2 = head2;
+	get_int(temp1, temp2, &d1, &d2, 1);
+	get_int(temp1, temp2, &m1, &m2, 1);
+	get_int(temp1, temp2, &y1, &y2, 3);
+	if (d1 == d2&&m1 == m2&&y1 == y2)
+		return 0;
+	else
+	{
+		if (y1 == y2)
+		{
+			if (m1 == m2)
+				return d2 - d1;
+			else
+			{
+				while (m1 != m2)
+				{
+					if (m1 == 1 || m1 == 3 || m1 == 5 || m1 == 7 || m1 == 8 || m1 == 10 || m1 == 12)
+					{
+						i = (i + 31) - d1;
+						m1++;
+					}
+				}
+				if (m1 == m2)
+					i = i + d2;
+			}
+		}
+		else
+		{
+			while (y1 < y2)
+			{
+				if (y1 % 4 == 0)
+					i = i + 1;
+				i = i + 365;
+				y1++;
+			}
+			if (y1 == y2)
+			{
+				while (m1 != m2)
+				{
+					if (m1 == 1 || m1 == 3 || m1 == 5 || m1 == 7 || m1 == 8 || m1 == 10 || m1 == 12)
+					{
+						i = (i + 31) - d1;
+						m1++;
+					}
+				}
+				if (m1 == m2)
+					i = i + d2;
+			}
+		}
+
+	}
+}
+int exp(int j)
+{
+	int s = 1;
+	while (j>0)
+	{
+		s = s * 10;
+		j--;
+	}
+	return s;
 }

@@ -33,6 +33,44 @@ struct node{
 	struct node *next;
 };
 int merge_circularlists(struct node **head1, struct node **head2){
-	//Returns Length of merged Sorted circular SLL and also points *head1 to final SLL .
-	return -1;
+
+	int i = 1;
+	if (head1 == '\0'&&head2 == '\0')
+		return -1;
+	node **curr1, **curr2, **curr, **t;
+	curr1 = head1;
+	curr2 = head2;
+	t = head2;
+	curr = curr1;
+	while (curr1 != '\0'&&curr2 != '\0')
+	{
+		while ((*curr1)->data<(*curr2)->data&&(*curr1)->next != '\0')
+		{
+			*curr = *curr1;
+			*curr1 = (*curr1)->next;
+			i++;
+		}
+		if ((*curr1)->data >= (*curr2)->data)
+		{
+			if (*curr1 == *head1)
+				*head1 = *curr2;
+			else
+				(*curr)->next = *curr2;
+			*t = (*curr2)->next;
+			(*curr2)->next = *curr1;
+			*curr = *curr2;
+			i++;
+		}
+		else if ((*curr1)->next == '\0')
+		{
+			(*curr1)->next = *curr2;
+			while ((*curr2)->next != *head2)
+				i++;
+			(*curr2)->next = *head1;
+			return i;
+		}
+		(*curr2) = *t;
+	}
+	(*curr2)->next = *head1;
+	return i;
 }
