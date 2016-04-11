@@ -51,6 +51,10 @@ namespace spec
 			Assert::AreEqual(1, check, L"Null case failed for Array Sequences", 1, 2);
 		};
 
+		//Un Comment below test case for more testing , Make sure you wont corrupt the File 
+		//
+
+
 		[TestMethod, Timeout(2000)]
 		void Sample2_ArraySequences()
 		{
@@ -62,6 +66,248 @@ namespace spec
 			Assert::AreEqual(1, check, L"Sample2 Case failed for ArraysSequences", 1, 2);
 		};
 		
+		[TestMethod, Timeout(2000)]
+		void Real_ArraySequences1()
+		{
+			int input[10] = { 1, 100, 199, 5, 10, 15, 30, 60 };
+			int ans[6] = { 0, 2, 3, 5, 5, 7 };
+			int len = 8;
+			int *res = find_sequences(input, len);
+			int check = compare_arrays(res, ans);
+			Assert::AreEqual(1, check, L"Real Case failed for ArraysSequences", 1, 2);
+		};
+
+		[TestMethod, Timeout(1000)]
+		void Real_ArraySequences2()
+		{
+			int input[10] = { 15, 30, 60, 1, 100, 199, 5, 10, 15 };
+			int ans[6] = { 3, 5, 6, 8, 0, 2 };
+			int len = 9;
+			int *res = find_sequences(input, len);
+			int check = compare_arrays(res, ans);
+			Assert::AreEqual(1, check, L"Real2 Case failed for ArraysSequences", 1, 2);
+		};
+
+		[TestMethod, Timeout(1000)]
+		void Real_ArraySequences3()
+		{
+			int input[10] = { 15, 30, 60, 1, 100, 199, 5, 10, 15 };
+			int ans[6] = { 3, 5, 6, 8, 0, 2 };
+			int len = 9;
+			int *res = find_sequences(input, len);
+			int check = compare_arrays(res, ans);
+			Assert::AreEqual(1, check, L"Real2 Case failed for ArraysSequences", 1, 2);
+		};
+
+		[TestMethod, Timeout(1000)]
+		void Real_ArraySequences4()
+		{
+			int input[10] = { 15, 30, 60, 1, 50, 99,100, 101, 102 };
+			int ans[6] = { 3, 5, 5, 8, 0, 2 };
+			int len = 9;
+			int *res = find_sequences(input, len);
+			int check = compare_arrays(res, ans);
+			Assert::AreEqual(1, check, L"Real2 Case failed for ArraysSequences", 1, 2);
+		};
+		[TestMethod, Timeout(1000)]
+		void Real_ArraySequences5()
+		{
+			int input[10] = { -20,10,40,160,200,240 };
+			int ans[6] = { 0,2,3,5,1,3};
+			int len = 6;
+			int *res = find_sequences(input, len);
+			int check = compare_arrays(res, ans);
+			Assert::AreEqual(1, check, L"Real2 Case failed for ArraysSequences", 1, 2);
+		};
+		[TestMethod, Timeout(1000)]
+		void Real_ArraySequences6()
+		{
+			int input[10] = { -20, 10, 40, 160, 200, 240 };
+			int ans[6] = { 0, 2, 3, 5, 1, 3 };
+			int len = 6;
+			int *res = find_sequences(input, len);
+			int check = compare_arrays(res, ans);
+			Assert::AreEqual(1, check, L"Real2 Case failed for ArraysSequences", 1, 2);
+		};
+		[TestMethod, Timeout(1000)]
+		void Real_ArraySequences7()
+		{
+			int input[10] = { 1,5,9,13,17,29,41,53,106,212 };
+			int ans[6] = { 0,4, 4, 7, 7, 9 };
+			int len = 10;
+			int *res = find_sequences(input, len);
+			int check = compare_arrays(res, ans);
+			Assert::AreEqual(1, check, L"Real2 Case failed for ArraysSequences", 1, 2);
+		};
+		[TestMethod, Timeout(1000)]
+		void Real_ArraySequences8()
+		{
+			int input[10] = { 1, 5, 9, 13, 17, 29, 41, 53, 106, 212 };
+			int ans[6] = { 0, 4, 4, 7, 7, 9 };
+			int len = 10;
+			int *res = find_sequences(input, len);
+			int check = compare_arrays(res, ans);
+			Assert::AreEqual(1, check, L"Real2 Case failed for ArraysSequences", 1, 2);
+		};
+
+		[TestMethod, Timeout(1000)]
+		void Real_ArraySequences9()
+		{
+			int input[10] = { 1, 5, 9, 13, 53, 106, 212, 200, 188, 176 };
+			int ans[6] = { 0, 3, 6, 9, 4, 6 };
+			int len = 10;
+			int *res = find_sequences(input, len);
+			int check = compare_arrays(res, ans);
+			Assert::AreEqual(1, check, L"Real2 Case failed for ArraysSequences", 1, 2);
+		};
+		[TestMethod, Timeout(1000)]
+		void Real_ArraySequences10()
+		{
+			int input[10] = { 1, 5, 9, 13, 53, 106, 212, 200, 188, 176 };
+			int ans[6] = { 0, 3, 6, 9, 4, 6 };
+			int len = 10;
+			int *res = find_sequences(input, len);
+			int check = compare_arrays(res, ans);
+			Assert::AreEqual(1, check, L"Real2 Case failed for ArraysSequences", 1, 2);
+		};
+		
+		//Negtive Nums -5 Cases 
+		[TestMethod, Timeout(1000)]
+		void Real_ArraySequences11()
+		{
+			int input[10] = { 10,-10,-30,10,20,40,10,-20 };
+			int ans[6] = { 0, 2, 5, 7, 3, 5 };
+			int len = 8;
+			int *res = find_sequences(input, len);
+			int check = compare_arrays(res, ans);
+			Assert::AreEqual(1, check, L"Real2 Case failed for ArraysSequences", 1, 2);
+		};
+		[TestMethod, Timeout(1000)]
+		void Real_ArraySequences12()
+		{
+			int input[10] = { 10, -10, -30, 10, 20, 40, 10, -20 };
+			int ans[6] = { 0, 2, 5, 7, 3, 5 };
+			int len = 8;
+			int *res = find_sequences(input, len);
+			int check = compare_arrays(res, ans);
+			Assert::AreEqual(1, check, L"Real2 Case failed for ArraysSequences", 1, 2);
+		};
+		[TestMethod, Timeout(1000)]
+		void Real_ArraySequences13()
+		{
+			int input[10] = { -2,10,22,48,74,148,296 };
+			int ans[6] = { 0, 2, 2, 4, 4, 6 };
+			int len = 7;
+			int *res = find_sequences(input, len);
+			int check = compare_arrays(res, ans);
+			Assert::AreEqual(1, check, L"Real2 Case failed for ArraysSequences", 1, 2);
+		};
+		[TestMethod, Timeout(1000)]
+		void Real_ArraySequences14()
+		{
+			int input[10] = { -2, 10, 22, 48, 74, 148, 296 };
+			int ans[6] = { 0, 2, 2, 4, 4, 6 };
+			int len = 7;
+			int *res = find_sequences(input, len);
+			int check = compare_arrays(res, ans);
+			Assert::AreEqual(1, check, L"Real2 Case failed for ArraysSequences", 1, 2);
+		};
+		[TestMethod, Timeout(1000)]
+		void Real_ArraySequences15()
+		{
+			int input[10] = { -2, 10, 22, 48, 74, 148, 296 };
+			int ans[6] = { 0, 2, 2, 4, 4, 6 };
+			int len = 7;
+			int *res = find_sequences(input, len);;
+			int check = compare_arrays(res, ans);
+			Assert::AreEqual(1, check, L"Real2 Case failed for ArraysSequences", 1, 2);
+		};
+
+		[TestMethod, Timeout(1000)]
+		void Real_ArraySequences16()
+		{
+			int input[10] = { -10,-30,-50,100,50,25,-100,-225 };
+			int ans[6] = { 0, 2, 5, 7, 3, 5 };
+			int len = 8;
+			int *res = find_sequences(input, len);
+			int check = compare_arrays(res, ans);
+			Assert::AreEqual(1, check, L"Real2 Case failed for ArraysSequences", 1, 2);
+		};
+		[TestMethod, Timeout(1000)]
+		void Real_ArraySequences17()
+		{
+			int input[10] = { -10, -30, -50, 100, 50, 25, -100, -225 };
+			int ans[6] = { 0, 2, 5, 7, 3, 5 };
+			int len = 8;
+			int *res = find_sequences(input, len);
+			int check = compare_arrays(res, ans);
+			Assert::AreEqual(1, check, L"Real2 Case failed for ArraysSequences", 1, 2);
+		};
+		[TestMethod, Timeout(1000)]
+		void Real_ArraySequences18()
+		{
+			int input[10] = { -9,-5,-1,3,-9,27,30,33 };
+			int ans[6] = { 0, 3, 5, 7, 2, 5 };
+			int len = 8;
+			int *res = find_sequences(input, len);
+			int check = compare_arrays(res, ans);
+			Assert::AreEqual(1, check, L"Real2 Case failed for ArraysSequences", 1, 2);
+		};
+		[TestMethod, Timeout(1000)]
+		void Real_ArraySequences19()
+		{
+			int input[10] = { 12,1,-10,-21,-43,-65,-87,1,5,25};
+			int ans[6] = { 0, 3, 3, 6, 7, 9 };
+			int len =10;
+			int *res = find_sequences(input, len);
+			int check = compare_arrays(res, ans);
+			Assert::AreEqual(1, check, L"Real2 Case failed for ArraysSequences", 1, 2);
+		};
+		[TestMethod, Timeout(1000)]
+		void Real_ArraySequences20()
+		{
+			int input[10] = { 12, 1, -10, -21, -43, -65, -87, 1, 5, 25 };
+			int ans[6] = { 0, 3, 3, 6, 7, 9 };
+			int len = 10;
+			int *res = find_sequences(input, len);
+			int check = compare_arrays(res, ans);
+			Assert::AreEqual(1, check, L"Real2 Case failed for ArraysSequences", 1, 2);
+		};
+		[TestMethod, Timeout(1000)]
+		void Real_ArraySequences21()
+		{
+			int input[10] = { 12, 0,-12,0,6,12,20,10,5 };
+			int ans[6] = { 0, 2, 3, 5, 6, 8 };
+			int len = 9;
+			int *res = find_sequences(input, len);
+			int check = compare_arrays(res, ans);
+			Assert::AreEqual(1, check, L"Real2 Case failed for ArraysSequences", 1, 2);
+		};
+		[TestMethod, Timeout(1000)]
+		void Real_ArraySequences22()
+		{
+			int input[10] = { 12, 0, -12, 0, 6, 12, 20, 10, 5 };
+			int ans[6] = { 0, 2, 3, 5, 6, 8 };
+			int len = 9;
+			int *res = find_sequences(input, len);
+			int check = compare_arrays(res, ans);
+			Assert::AreEqual(1, check, L"Real2 Case failed for ArraysSequences", 1, 2);
+		};
+		[TestMethod, Timeout(1000)]
+		void Real_ArraySequences23()
+		{
+			int input[10] = { 12, 0, -12, 0, 6, 12, 20, 10, 5 };
+			int ans[6] = { 0, 2, 3, 5, 6, 8 };
+			int len = 9;
+			int *res = find_sequences(input, len);
+			int check = compare_arrays(res, ans);
+			Assert::AreEqual(1, check, L"Real2 Case failed for ArraysSequences", 1, 2);
+		};
+
+		//Large - 2Cases
+
+		//ZeroCases - 5 
+
 
 		
 	};
